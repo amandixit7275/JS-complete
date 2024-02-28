@@ -4,35 +4,35 @@
 // 2) A Promise can be one of these states: Pending, resolved, or rejected.
 // 3) A promise represents a value that may not be available but will be available at some point of time
 
-let pr = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("RESOLVED");
+// let pr = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("RESOLVED");
 
-    reject("some error occured");
-  }, 1000);
-});
+//     reject("some error occured");
+//   }, 1000);
+// });
 
-pr.then((msg) => {
-  console.log(msg);
-})
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    console.log("finally executed");
-  });
+// pr.then((msg) => {
+//   console.log(msg);
+// })
+//   .catch((err) => {
+//     console.log(err);
+//   })
+//   .finally(() => {
+//     console.log("finally executed");
+//   });
 
-function sqr(a) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(a * a);
+// function sqr(a) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(a * a);
 
-      reject("some error occured");
-    }, 1000);
-  });
-}
+//       reject("some error occured");
+//     }, 1000);
+//   });
+// }
 
-// sqr(2)
+// // sqr(2)
 //   .then((val) => {
 //     console.log(val);
 //     return sqr(val);
@@ -109,26 +109,56 @@ function sqr(a) {
 
 // body -> chairs -> engine -> wheels
 
-function makeBody() {
+function makebody() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const body = "🚙";
-      resolve("The body has been made", body);
-      return body;
+      const body = "🚖";
+      console.log("The body is delivered", body);
+      resolve(body);
     }, 1000);
   });
 }
-
-function makeChair(body) {
+function makeChair(input) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const chair = "🦼" + body;
-      resolve("The chair has been made", chair);
-      return chair;
-    }, 2000);
+      // const chair = input + "🦽";
+      // console.log("The chair is delivered", chair);
+      // resolve(chair);
+      reject("Some error occured");
+    }, 1000);
+  });
+}
+function assembleEngine(input) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const engine = input + "🚂";
+      console.log("The body is delivered", engine);
+      resolve(engine);
+    }, 500);
+  });
+}
+function assembleWheel(input) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const wheel = input + "🌌";
+      console.log("The wheel is delivered", wheel);
+      resolve(wheel);
+    }, 500);
   });
 }
 
-makeBody().then((res) => {
-  console.log(res);
-});
+async function showRes() {
+  try {
+    let res1 = await makebody();
+    let res2 = await makeChair(res1);
+    let res3 = await assembleEngine(res2);
+    let res4 = await assembleWheel(res3);
+    console.log("The Car has been made " + res4);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    console.log("Process ended");
+  }
+}
+
+showRes();
