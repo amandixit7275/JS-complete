@@ -295,3 +295,41 @@ date.setHours(date.getHours() + 1);
 date.setMinutes(date.getMinutes() + 30);
 date.setSeconds(date.getSeconds() + 40);
 console.log(date);
+
+//
+const students = [
+  {
+    id: 1,
+    name: "abc",
+    age: 24,
+  },
+  {
+    id: 2,
+    name: "def",
+    age: 30,
+  },
+  {
+    id: 3,
+    name: "ghi",
+    age: 31,
+  },
+];
+const name2 = [];
+const ageGreaterThan = [];
+const ageStudents = [];
+
+students.map((item) => {
+  name2.push(item.name);
+  ageStudents.push(item.age);
+
+  if (item.age >= 30) {
+    ageGreaterThan.push(item.age);
+  }
+});
+console.log(`Name of all students ${name2}`);
+console.log(
+  `Age of students greatet than or equal to thirty ${ageGreaterThan}`
+);
+
+const sumAge = ageStudents.reduce((acc, cuVal) => (acc += cuVal), 0);
+console.log(`Sum of age of all students ${sumAge}`);
