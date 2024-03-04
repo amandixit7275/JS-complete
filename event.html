@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .div2 {
+      width: 50%;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 50px;
+      margin: auto;
+
+      justify-content: center;
+    }
+    .div1 {
+      width: 70%;
+      height: 200px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 50px;
+      margin: auto;
+
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <!-- A bubbling has a tendency to go up from botton to top -->
+
+    <div class="div1">
+      <div class="div2">
+        <button class="btn">Click me</button>
+      </div>
+    </div>
+
+    <script>
+      const div1 = document.querySelector(".div1");
+      const div2 = document.querySelector(".div2");
+      const btn = document.querySelector(".btn");
+      window.onload = function () {
+        div1.addEventListener("click", div1Click, true);
+
+        div2.addEventListener("click", div2Click, true);
+        btn.addEventListener("click", btnClick, true);
+      };
+
+      function div2Click() {
+        alert("div 2 clicked");
+      }
+      function div1Click() {
+        alert("div 1 clicked");
+      }
+      function btnClick() {
+        alert("btn clicked");
+        //to stop bubbling
+
+        //Bubbling and capturing facilitates us with one of th ost powerful event handling pattern i.e Evene Delegation
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="text">Waiting..</h1>
+    <button onclick="trytimer()">Start Time</button>
+    <button onclick="stopTimer()">Stop timer</button>
+
+    <script>
+      function trytimer() {
+        tObj = setInterval(() => {
+          document.getElementById("text").innerHTML = new Date();
+        }, 1000);
+      }
+      function stopTimer() {
+        clearInterval(tObj);
+      }
+    </script>
+  </body>
+</html>

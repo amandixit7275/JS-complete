@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <h1 id="cnt">content when page loaded..</h1> -->
+    <!-- <button onclick="btnClicked()">Change content</button> -->
+    <div>
+      <p>first</p>
+      <p id="p2">Second</p>
+      <p class="a">third</p>
+      <h3 class="a">H3-1</h3>
+      <h4 class="a">h3-2</h4>
+    </div>
+    <button onclick="btnClicked()">Change content</button>
+
+    <script>
+      function btnClicked() {
+        const elements = document.querySelectorAll(".a");
+        console.log(elements);
+      }
+
+      //   function btnClicked() {
+      //     const eleCnt = document.getElementById("cnt");
+      //     eleCnt.innerHTML = "Conten after button clicked ";
+      //   }
+    </script>
+  </body>
+</html>

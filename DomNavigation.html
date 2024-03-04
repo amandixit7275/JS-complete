@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 350px;
+        height: 300px;
+        border: 1px solid salmon;
+        text-align: center;
+        padding: 5px;
+        margin: 3px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <h1>First Division</h1>
+      <ul>
+        <li>First item</li>
+        <li>Second item</li>
+      </ul>
+    </div>
+    <div>
+      <h1>Second Division</h1>
+      <button onclick="btnClick()">Click me</button>
+
+      <script>
+        const div1 = document.getElementById("div1");
+        function btnClick() {
+          //   console.log(document.documentElement);
+          //   console.log(document.head);
+          //   console.log(document.body);
+          //   console.log(div1.childNodes);
+          //   console.log(div1.firstElementChild);
+          //   console.log(div1.firstElementChild.nodeName);
+          //   console.log(div1.firstElementChild.nodeType);
+          console.log(div1.nextElementSibling);
+          console.log(div1.parentElement);
+          console.log(div1.parentNode);
+        }
+      </script>
+    </div>
+  </body>
+</html>
